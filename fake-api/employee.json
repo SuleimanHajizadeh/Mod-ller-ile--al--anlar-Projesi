@@ -1,9 +1,22 @@
 {
-    "posts": [
-      { "id": 1, "title": "json-server", "author": "typicode" }
-    ],
-    "comments": [
-      { "id": 1, "body": "some comment", "postId": 1 }
-    ],
-    "profile": { "name": "typicode" }
-  }
+    "employees": [
+        {
+            "name": "Suleiman Hajizadeh",
+            "department": "SnamiPharmacy LLC",
+            "salary": 10000,
+            "id": 1
+        },
+        {
+            "name": "Aysel Hajizadeh",
+            "department": "SnamiPharmacy LLC",
+            "salary": 9000,
+            "id": 2
+        },
+        {
+            "name": "Davud Hajizadeh",
+            "department": "SnamiPharmacy LLC",
+            "salary": 20000,
+            "id": 3
+        }
+    ]
+}
