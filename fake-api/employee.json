@@ -23,12 +23,6 @@
       "department": "Pazarlama",
       "salary": 10000,
       "id": 4
-    },
-    {
-      "name": "Yagub Hajizadeh",
-      "department": "Pazarlama",
-      "salary": 10000,
-      "id": 5
     }
   ]
 }
