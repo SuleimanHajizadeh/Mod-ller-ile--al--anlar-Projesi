@@ -1529,6 +1529,12 @@
       "department": "Pazarlama",
       "salary": 10000,
       "id": 255
+    },
+    {
+      "name": "Yahya Hajizadeh",
+      "department": "Pazarlama",
+      "salary": 10000,
+      "id": 256
     }
   ]
 }
