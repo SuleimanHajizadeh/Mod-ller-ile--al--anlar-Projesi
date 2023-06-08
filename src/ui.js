@@ -7,27 +7,21 @@ export class UI {
         this.salaryInput = document.getElementById("salary");
     }
 
-    addAllEmployeesToUI(employees) {
+    addAllEmployeeToUI(employees) {
 
 
         let result = "";
 
         employees.forEach(employee => {
-            result += `
-        <tr>
-
+            result += 
+        `<tr>
             <td>${employee.name}</td>
             <td>${employee.deparment}</td>
             <td>${employee.salary}</td>
             <td>${employee.id}</td>
             <td><a href="#" id="update-employee" class="btn btn-danger">Güncelle</a></td>
             <td> <a href="#" id="delete-employee" class="btn btn-danger">Sil</a></td>
-        </tr>
-            
-            
-            
-            
-            `;
+        </tr>`;
         });
 
         this.employeesList.innerHTML = result;
@@ -40,19 +34,15 @@ export class UI {
         this.salaryInput.value = "";
     }
     addAllEmployeeToUI(employee) {
-        this.employeesList.innerHTML += `
-        <tr>
-
-            <td>${employee.name}</td>
-            <td>${employee.deparment}</td>
-            <td>${employee.salary}</td>
-            <td>${employee.id}</td>
-            <td><a href="#" id="update-employee" class="btn btn-danger">Güncelle</a></td>
-            <td> <a href="#" id="delete-employee" class="btn btn-danger">Sil</a></td>
-        </tr>
-
-
-       `;
+        this.employeesList.innerHTML += 
+    `<tr>
+        <td>${employee.name}</td>
+        <td>${employee.deparment}</td>
+        <td>${employee.salary}</td>
+        <td>${employee.id}</td>
+        <td><a href="#" id="update-employee" class="btn btn-danger">Güncelle</a></td>
+        <td> <a href="#" id="delete-employee" class="btn btn-danger">Sil</a></td>
+    </tr>`;
     }
 
     deleteEmployeeFromIU(element) {
@@ -82,17 +72,15 @@ export class UI {
     }
 
     updateEmployeeOnUI(employee,parent) {
-        parent.innerHTML = `
-        <tr>
-
-            <td>${employee.name}</td>
-            <td>${employee.deparment}</td>
-            <td>${employee.salary}</td>
-            <td>${employee.id}</td>
-            <td><a href="#" id="update-employee" class="btn btn-danger">Güncelle</a></td>
-            <td> <a href="#" id="delete-employee" class="btn btn-danger">Sil</a></td>
-        </tr>
-        `;
+        parent.innerHTML = 
+    `<tr>
+        <td>${employee.name}</td>
+        <td>${employee.deparment}</td>
+        <td>${employee.salary}</td>
+        <td>${employee.id}</td>
+        <td><a href="#" id="update-employee" class="btn btn-danger">Güncelle</a></td>
+        <td> <a href="#" id="delete-employee" class="btn btn-danger">Sil</a></td>
+    </tr>`;
         this.clearInputs();
     }
 

@@ -14,7 +14,7 @@ const ui = new UI();
 
 let updateState = null;
 
-addEventListeners();
+eventListeners();
 
 function eventListeners() {
     document.addEventListener("DOMContentLoaded", getAllEmployees);
