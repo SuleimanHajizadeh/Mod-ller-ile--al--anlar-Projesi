@@ -92,7 +92,8 @@ export class UI {
             <td><a href="#" id="update-employee" class="btn btn-danger">Güncelle</a></td>
             <td> <a href="#" id="delete-employee" class="btn btn-danger">Sil</a></td>
         </tr>
-        `
+        `;
+        this.clearInputs();
     }
 
 }
