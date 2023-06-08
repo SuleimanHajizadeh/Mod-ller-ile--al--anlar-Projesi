@@ -17,13 +17,14 @@ addEventListeners();
 function eventListeners() {
     document.addEventListener("DOMContentLoaded", getAllEmployees);
     form.addEventListener("submit", addEmployee);
+    employeesList.addEventListener("click", UpdateOrDelete);
 
 }
 
 function getAllEmployees() {
     request.get()
         .then(employees => {
-ui.addAllEmployeeToUI(employees);
+            ui.addAllEmployeeToUI(employees);
 
         })
         .catch(err => console.log(err));
@@ -40,11 +41,11 @@ function addEmployee(e) {
         alert("Lutfen tum alanlari doldurun");
 
     } else {
-        request.post({name:employeeName,department:employeeDerparment,salary:Number(employeeSalary)})
-        .then(employee => {
-            ui.addAllEmployeeToUI(employee);
-        })
-        .catch(err => console.log(err));
+        request.post({ name: employeeName, department: employeeDerparment, salary: Number(employeeSalary) })
+            .then(employee => {
+                ui.addAllEmployeeToUI(employee);
+            })
+            .catch(err => console.log(err));
     }
 
 
@@ -52,6 +53,28 @@ function addEmployee(e) {
     ui.clearInputs();
     e.preventDefault();
 
+}
+
+function UpdateOrDelete(e) {
+
+    if (e.target.id === "delete-employee") {
+        // Silme
+deleteEmployee(e.target);
+    } else if (e.target.id === "update-employee") {
+        // Guncelleme
+    }
+
+}
+
+function deleteEmployee(targetEmployee) {
+    const id = targetEmployee.parentElement.previousElementSibling.previousElementSibling.textContent;
+
+    request.delete(id)
+    .then(message => {
+ui.deleteEmployeeFromUI(targetEmployee.parentElement.parentElement);
+
+    })
+    .catch(err => console.log(err))
 }
 
 

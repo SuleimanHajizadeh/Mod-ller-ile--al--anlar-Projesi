@@ -55,6 +55,8 @@ export class UI {
        `;
     }
 
-
+    deleteEmployeeFromIU(element) {
+        element.remove();
+    }
 
 }
