@@ -22,7 +22,7 @@ module.exports = {
     ]
   },
   devServer: {
-    port: 3200,
+    port: 5500,
     index: 'index.html'
   }
 };
