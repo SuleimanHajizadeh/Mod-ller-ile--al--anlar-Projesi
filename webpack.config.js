@@ -1,5 +1,4 @@
 const path = require('path');
-const webpack = require('webpack');
 
 module.exports = {
   entry: ["@babel/polyfill",'./src/index.js'],
@@ -23,7 +22,7 @@ module.exports = {
     ]
   },
   devServer: {
-    port: 5500,
+    port: 3200,
     index: 'index.html'
   }
 };
