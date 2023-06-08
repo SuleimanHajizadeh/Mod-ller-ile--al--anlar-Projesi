@@ -16,6 +16,8 @@ addEventListeners();
 
 function eventListeners() {
     document.addEventListener("DOMContentLoaded", getAllEmployees);
+    form.addEventListener("submit", addEmployee);
+
 }
 
 function getAllEmployees() {
@@ -25,6 +27,31 @@ ui.addAllEmployeeToUI(employees);
 
         })
         .catch(err => console.log(err));
+}
+
+function addEmployee(e) {
+
+
+    const employeeName = nameInput.value.trim();
+    const employeeDerparment = departmentInpun.value.trim();
+    const employeeSalary = salaryInput.value.trim();
+
+    if (employeeName === "" || employeeDerparment === "" || employeeSalary === "") {
+        alert("Lutfen tum alanlari doldurun");
+
+    } else {
+        request.post({name:employeeName,department:employeeDerparment,salary:Number(employeeSalary)})
+        .then(employee => {
+            ui.addAllEmployeeToUI(employee);
+        })
+        .catch(err => console.log(err));
+    }
+
+
+
+    ui.clearInputs();
+    e.preventDefault();
+
 }
 
 
@@ -41,6 +68,6 @@ ui.addAllEmployeeToUI(employees);
 // .then(employee => console.log(employee))
 // .catch(err => console.log(err));
 
-request.delete(5)
-    .then(message => console.log(message))
-    .catch(err => console.log(err));
+// request.delete(5)
+//     .then(message => console.log(message))
+//     .catch(err => console.log(err));
