@@ -51,7 +51,7 @@ function addEmployee(e) {
     }
 
 
-    
+
     ui.clearInputs();
     e.preventDefault();
 }
@@ -62,6 +62,7 @@ function UpdateOrDelete(e) {
         // Silme
         deleteEmployee(e.target);
     } else if (e.target.id === "update-employee") {
+        // Guncelleme
         updateEmployeeController(e.target.parentElement.parentElement);
     }
 
