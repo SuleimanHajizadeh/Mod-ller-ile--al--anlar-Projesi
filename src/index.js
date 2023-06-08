@@ -4,7 +4,7 @@ import { UI } from "./ui";
 // Elementleri Secme
 const form = document.getElementById("employee-form");
 const nameInput = document.getElementById("name");
-const departmentInpun = document.getElementById("department");
+const departmentInput = document.getElementById("department");
 const salaryInput = document.getElementById("salary");
 const employeesList = document.getElementById("employees");
 const updateEmployeeButton = document.getElementById("update");
@@ -12,12 +12,15 @@ const updateEmployeeButton = document.getElementById("update");
 const request = new Request("http://localhost:3000/employees");
 const ui = new UI();
 
+let updateState = null;
+
 addEventListeners();
 
 function eventListeners() {
     document.addEventListener("DOMContentLoaded", getAllEmployees);
     form.addEventListener("submit", addEmployee);
     employeesList.addEventListener("click", UpdateOrDelete);
+    updateEmployeeButton.addEventListener("click", updateEmployee);
 
 }
 
@@ -34,7 +37,7 @@ function addEmployee(e) {
 
 
     const employeeName = nameInput.value.trim();
-    const employeeDerparment = departmentInpun.value.trim();
+    const employeeDerparment = departmentInput.value.trim();
     const employeeSalary = salaryInput.value.trim();
 
     if (employeeName === "" || employeeDerparment === "" || employeeSalary === "") {
@@ -81,6 +84,31 @@ function updateEmployeeController(targetEmployee) {
 
     ui.toggleUpdateButton(targetEmployee);
 
+    if (updateState === null) {
+
+        updateState = {
+            updateId: targetEmployee.children[3].textContent,
+            updateParent: targetEmployee
+        }
+    } else {
+        updateState = null;
+
+    }
+
+}
+
+function updateEmployee() {
+    if (updateState) {
+        // Guncelleme
+
+        const data = { name: nameInput.value.trim(), department: departmentInput.value.trim(), salary: Number(salaryInput.value.trim()) }
+
+        request.put(updateState.updateId, data)
+            .then(updatedEmployee => {
+                ui.updateEmployeeOnUI(updatedEmployee, updateState.updateParent);
+            })
+            .catch(err => console.log(err));
+    }
 }
 
 

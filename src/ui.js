@@ -81,4 +81,18 @@ export class UI {
 
     }
 
+    updateEmployeeOnUI(employee,parent) {
+        parent.innerHTML = `
+        <tr>
+
+            <td>${employee.name}</td>
+            <td>${employee.deparment}</td>
+            <td>${employee.salary}</td>
+            <td>${employee.id}</td>
+            <td><a href="#" id="update-employee" class="btn btn-danger">Güncelle</a></td>
+            <td> <a href="#" id="delete-employee" class="btn btn-danger">Sil</a></td>
+        </tr>
+        `
+    }
+
 }
