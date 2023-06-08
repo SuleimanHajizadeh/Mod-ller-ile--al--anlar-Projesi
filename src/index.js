@@ -59,9 +59,9 @@ function UpdateOrDelete(e) {
 
     if (e.target.id === "delete-employee") {
         // Silme
-deleteEmployee(e.target);
+        deleteEmployee(e.target);
     } else if (e.target.id === "update-employee") {
-        // Guncelleme
+        updateEmployeeController(e.target.parentElement.parentElement);
     }
 
 }
@@ -70,11 +70,17 @@ function deleteEmployee(targetEmployee) {
     const id = targetEmployee.parentElement.previousElementSibling.previousElementSibling.textContent;
 
     request.delete(id)
-    .then(message => {
-ui.deleteEmployeeFromUI(targetEmployee.parentElement.parentElement);
+        .then(message => {
+            ui.deleteEmployeeFromUI(targetEmployee.parentElement.parentElement);
 
-    })
-    .catch(err => console.log(err))
+        })
+        .catch(err => console.log(err))
+}
+
+function updateEmployeeController(targetEmployee) {
+
+    ui.toggleUpdateButton(targetEmployee);
+
 }
 
 
