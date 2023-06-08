@@ -1,4 +1,5 @@
 export class UI {
+
     constructor() {
         this.employeesList = document.getElementById("employees");
         this.updateButton = document.getElementById("update");
@@ -33,7 +34,8 @@ export class UI {
         this.departmentInput.value = "";
         this.salaryInput.value = "";
     }
-    addAllEmployeeToUI(employee) {
+
+    addEmployeeToUI(employee) {
         this.employeesList.innerHTML += 
     `<tr>
         <td>${employee.name}</td>

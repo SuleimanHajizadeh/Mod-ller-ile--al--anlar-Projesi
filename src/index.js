@@ -35,27 +35,25 @@ function getAllEmployees() {
 
 function addEmployee(e) {
 
-
     const employeeName = nameInput.value.trim();
-    const employeeDerparment = departmentInput.value.trim();
+    const employeeDepartment = departmentInput.value.trim();
     const employeeSalary = salaryInput.value.trim();
 
-    if (employeeName === "" || employeeDerparment === "" || employeeSalary === "") {
+    if (employeeName === "" || employeeDepartment === "" || employeeSalary === "") {
         alert("Lutfen tum alanlari doldurun");
 
     } else {
-        request.post({ name: employeeName, department: employeeDerparment, salary: Number(employeeSalary) })
+        request.post({ name: employeeName, department: employeeDepartment, salary: Number(employeeSalary) })
             .then(employee => {
-                ui.addAllEmployeeToUI(employee);
+                ui.addEmployeeToUI(employee);
             })
             .catch(err => console.log(err));
     }
 
 
-
+    
     ui.clearInputs();
     e.preventDefault();
-
 }
 
 function UpdateOrDelete(e) {
